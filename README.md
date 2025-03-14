@@ -44,6 +44,12 @@ npx playwright show-report
 ```
 This will open a browser window displaying the test results and detailed information about each test case.
 
+#### Report Sections
+- **Overview**: Provides a summary of the test run, including the number of tests passed, failed, and skipped.
+- **Test Cases**: Lists all the test cases executed, with details on their status (passed, failed, or skipped).
+- **Error Details**: For any failed tests, this section provides detailed error messages and stack traces to help diagnose issues.
+- **Screenshots and Videos**: If configured, Playwright can capture screenshots and videos of the test run, which will be displayed in this section for visual debugging.
+
 ## Test Scenarios
 The tests cover the following scenarios:
 - **Successful login**: Valid username and password.
