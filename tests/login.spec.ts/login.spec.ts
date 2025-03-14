@@ -24,6 +24,18 @@ async function postLoginRequest(
     expect(end - start).toBeGreaterThanOrEqual(2000);
   }
 
+  // Validate response headers
+  const headers = response.headers();
+  expect(headers).toHaveProperty('content-type');
+  expect(headers['content-type']).toContain('application/json');
+
+  // Validate response cookies (if any)
+  const setCookieHeader = headers['set-cookie'];
+  if (setCookieHeader) {
+    const cookies = setCookieHeader.split(';');
+    expect(cookies[0]).toContain('='); // Basic check to ensure cookie format
+  }
+
   if (expectedStatus === 200) {
     const json = await response.json();
     expect(json).toHaveProperty('token');
@@ -85,4 +97,26 @@ test('Invalid JSON structure', async ({ request }) => {
 
 test('SQL Injection attempt', async ({ request }) => {
   await postLoginRequest(request, "' OR '1'='1", 'password', 400);
+});
+
+test('Check headers and cookies', async ({ request }) => {
+  const response = await request.post(BASE_URL, {
+    data: { username: 'validuser@example.com', password: 'validpassword' },
+  });
+
+  // Validate response headers
+  const headers = response.headers();
+  expect(headers).toHaveProperty('content-type');
+  expect(headers['content-type']).toContain('application/json');
+
+  // Validate response cookies (if any)
+  const setCookieHeader = headers['set-cookie'];
+  if (setCookieHeader) {
+    const cookies = setCookieHeader.split(';');
+    expect(cookies[0]).toContain('='); // Basic check to ensure cookie format
+  }
+
+  // Validate response body
+  const json = await response.json();
+  expect(json).toHaveProperty('token');
 });

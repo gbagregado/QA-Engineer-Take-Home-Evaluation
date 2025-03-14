@@ -62,6 +62,10 @@ The tests cover the following scenarios:
 - **Long username or password**: Testing excessively long credentials.
 - **Invalid JSON structure**: Handling invalid JSON structures.
 - **SQL Injection attempt**: Testing for SQL injection vulnerabilities.
+- **Response headers validation**: Ensuring response headers contain the correct content type.
+- **Response cookies validation**: Checking for cookies in the response and validating their properties.
+- **Response token validation**: Ensuring the response contains a token when the login is successful.
+- **Check headers and cookies**: Validating response headers and cookies for a successful login.
 
 ## Author
 Gaucho Agregado
