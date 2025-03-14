@@ -16,8 +16,8 @@ This repository contains API tests for a login endpoint using Playwright. The te
 ### Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/apitesting.git
-    cd apitesting
+    git clone https://github.com/<yourusername>/QA-Engineer-Take-Home-Evaluation.git
+    cd QA-Engineer-Take-Home-Evaluation
     ```
 
 2. Install the dependencies:
