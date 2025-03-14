@@ -67,5 +67,10 @@ The tests cover the following scenarios:
 - **Response token validation**: Ensuring the response contains a token when the login is successful.
 - **Check headers and cookies**: Validating response headers and cookies for a successful login.
 
+
+## Test Document
+The detailed test cases can be found in the [TestCase Document.pdf](./TestCase%20Document.pdf).
+
+
 ## Author
 Gaucho Agregado
